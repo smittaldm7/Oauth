@@ -1,6 +1,6 @@
 Google Sign in 
 http://localhost:8000/home
-Able to get profile information for default scope. ALso get an id token. Don't think this is usefu for accessing APIs
+Able to get profile information for default scope. But not access token for accessign APIs
 
 
 Google Sign in for Server side apps
