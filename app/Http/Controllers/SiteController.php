@@ -21,8 +21,8 @@ class SiteController extends Controller
 	public function homea()
 	{
 
-		echo " :::::ID TOKEN:::::>>".$_GET['id_token'];
-		echo " :::::::GOOGLE PROJECT/APP CLIENT ID:::::>>".$_GET['client_id'];
+		echo " :::::ID TOKEN:::::<br>".$_GET['id_token'];
+		echo "<br><br>:::::::GOOGLE PROJECT/APP CLIENT ID:::::<br>".$_GET['client_id'];
 
 		// Get $id_token via HTTPS POST.
 
@@ -30,8 +30,10 @@ class SiteController extends Controller
 		$payload = $client->verifyIdToken($_GET['id_token']);
 		if ($payload) {
 			  $userid = $payload['sub'];
-			  echo " ::::::Google User ID:::::>>".$userid;
+			  echo "<br><br>::::::Google User ID:::::<br>".$userid;
 
+			  echo "<br><br>:::::PAYLOAD::";
+			  echo "<pre>"; print_r($payload);
 			/*
 			  $calendarList = $service->calendarList->listCalendarList();
 
