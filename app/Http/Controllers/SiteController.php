@@ -21,18 +21,19 @@ class SiteController extends Controller
 	public function homea()
 	{
 
-		echo "thanks".$_GET['id_token'];
-		echo "welcome".$_GET['client_id'];
+		echo " :::::ID TOKEN:::::".$_GET['id_token'];
+		echo " :::::::GOOGLE PROJECT/APP CLIENT ID:::::".$_GET['client_id'];
 
 		// Get $id_token via HTTPS POST.
 
 		$client = new Google_Client(['client_id' => $_GET['client_id']]);  // Specify the CLIENT_ID of the app that accesses the backend
 		$payload = $client->verifyIdToken($_GET['id_token']);
 		if ($payload) {
-		  $userid = $payload['sub'];
-		  echo $userid;
+			  $userid = $payload['sub'];
+			  echo " ::::::Google User ID:::::".$userid;
 
-		  $calendarList = $service->calendarList->listCalendarList();
+			/*
+			  $calendarList = $service->calendarList->listCalendarList();
 
 			while(true) {
 			  foreach ($calendarList->getItems() as $calendarListEntry) {
@@ -46,6 +47,7 @@ class SiteController extends Controller
 			    break;
 			  }
 			}
+			*/
 		  // If request specified a G Suite domain:
 		  //$domain = $payload['hd'];
 		} else {
